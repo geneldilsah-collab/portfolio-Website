@@ -1,0 +1,559 @@
+body {
+  --ink: #e8f7ff;
+  --muted: #9db2c0;
+  --paper: #070c16;
+  --accent: #65efff;
+  --line: rgba(127, 191, 220, .2);
+  background: #050811 !important;
+  background-image: linear-gradient(rgba(103, 192, 230, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(103, 192, 230, .055) 1px, transparent 1px), radial-gradient(circle at 15% 8%, rgba(0, 216, 255, .17), transparent 25%), radial-gradient(circle at 86% 16%, rgba(74, 75, 255, .18), transparent 27%), radial-gradient(circle at 50% 92%, rgba(0, 153, 190, .12), transparent 32%) !important;
+  background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%, 100% 100% !important;
+}
+
+body::before {
+  background: radial-gradient(ellipse at 30% 0%, rgba(40, 234, 255, .2), transparent 42%), radial-gradient(ellipse at 78% 42%, rgba(89, 66, 255, .16), transparent 38%), radial-gradient(ellipse at 38% 100%, rgba(0, 185, 220, .13), transparent 38%) !important;
+  filter: blur(36px) saturate(125%) !important;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(112deg, transparent 0 32%, rgba(97, 231, 255, .045) 44%, transparent 56%), radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, .42) 100%);
+  mix-blend-mode: screen;
+}
+
+.site-header,
+.site-footer {
+  background: rgba(5, 8, 17, .78) !important;
+  border-color: rgba(127, 191, 220, .18) !important;
+  color: #dff7ff;
+}
+
+.light-section {
+  background: rgba(8, 17, 30, .72) !important;
+}
+
+.hero-visual {
+  background: linear-gradient(135deg, #0c1d2c, #111735 52%, #092933) !important;
+  box-shadow: inset 0 0 90px rgba(0, 216, 255, .08), 0 0 50px rgba(0, 216, 255, .08);
+}
+
+.visual-grid {
+  background-image: linear-gradient(rgba(89, 225, 255, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(89, 225, 255, .12) 1px, transparent 1px) !important;
+}
+
+.skill-group,
+.process-list div {
+  background: rgba(9, 21, 35, .86) !important;
+}
+
+.service-grid article,
+.work-card {
+  background: rgba(10, 25, 40, .9) !important;
+  border-color: rgba(112, 203, 231, .2) !important;
+}
+
+.tag,
+.work-tags span,
+.dialog-tags span {
+  background: rgba(73, 177, 207, .12) !important;
+  border-color: rgba(111, 217, 241, .25) !important;
+  color: #c9f6ff;
+}
+
+.work-card::before {
+  background: rgba(224, 249, 255, .96) !important;
+}
+
+.about-landscape figcaption {
+  background: rgba(7, 13, 24, .78) !important;
+  color: #86efff !important;
+}
+
+.project-dialog,
+.contact-dialog {
+  background: #0a1524 !important;
+  color: #e8f7ff !important;
+  border: 1px solid rgba(101, 239, 255, .28);
+}
+
+.contact-details {
+  background: #101f31 !important;
+  border-color: rgba(101, 239, 255, .22) !important;
+}
+
+.work-card {
+  background: rgba(10, 25, 40, .9) !important;
+}
+
+.brand span,
+.eyebrow,
+.service-no,
+.process-list b,
+.contact-card b,
+em {
+  color: #159db5 !important;
+}
+
+.button-dark,
+.filter-button.is-active,
+.filter-button:hover {
+  background: #123f50 !important;
+  border-color: #123f50 !important;
+}
+
+.about-section {
+  grid-template-columns: 1fr 1.05fr;
+  gap: 80px;
+}
+
+.about-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.about-landscape {
+  position: relative;
+  margin: 0;
+  min-height: 270px;
+  overflow: hidden;
+  background: #c5eaf1;
+  border-radius: 48% 48% 6px 6px;
+}
+
+.about-landscape img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  filter: saturate(.9) contrast(.96);
+}
+
+.about-landscape figcaption {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  padding: 6px 9px;
+  background: rgba(255, 255, 255, .78);
+  color: #2a7787;
+  font: 600 .62rem 'DM Sans', sans-serif;
+  letter-spacing: .12em;
+}
+
+.chatwork-link {
+  padding-top: 14px;
+  border-top: 1px solid #8dbac3;
+  font-size: .95rem !important;
+}
+
+.work-card {
+  background: #e0f7fb !important;
+  border-color: #b7e2e9 !important;
+}
+
+.work-card::before {
+  background: #fff !important;
+  color: #8baeb7 !important;
+}
+
+@media (max-width: 800px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-landscape,
+  .about-landscape img {
+    height: 220px;
+    min-height: 220px;
+  }
+}
+
+.hero-visual {
+  overflow: hidden;
+}
+
+.hero-cloud {
+  position: absolute;
+  z-index: 2;
+  width: 150px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .72);
+  filter: blur(1px);
+  animation: cloud-drift 18s linear infinite;
+  pointer-events: none;
+}
+
+.hero-cloud::before,
+.hero-cloud::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.hero-cloud::before {
+  left: 24px;
+  width: 62px;
+  height: 62px;
+}
+
+.hero-cloud::after {
+  left: 72px;
+  width: 46px;
+  height: 46px;
+}
+
+.cloud-one { top: 12%; left: -170px; opacity: .78; }
+.cloud-two { top: 38%; left: -250px; width: 110px; transform: scale(.75); opacity: .5; animation-delay: -7s; }
+.cloud-three { top: 68%; left: -210px; transform: scale(.55); opacity: .42; animation-delay: -12s; }
+
+@keyframes cloud-drift {
+  from { margin-left: 0; }
+  to { margin-left: calc(100% + 500px); }
+}
+
+.contact-options {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.contact-option {
+  display: grid;
+  grid-template-columns: 124px 1fr auto;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #8dbac3;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.contact-option .contact-icon svg {
+  width: 38px;
+  height: 30px;
+}
+
+.contact-option {
+  grid-template-columns: 42px 1fr auto;
+}
+
+.contact-option:hover {
+  background: rgba(113, 228, 241, .18);
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  display: block;
+  width: 124px;
+  height: 32px;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.contact-icon svg,
+.contact-dialog-icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.gmail-icon {
+  background: transparent;
+  color: #fff;
+}
+
+.chatwork-icon {
+  background: transparent;
+  color: #fff;
+}
+
+.contact-option strong,
+.contact-option small {
+  display: block;
+}
+
+.contact-option strong { font-size: .82rem; }
+.contact-option small { margin-top: 3px; color: #b9d9df; font-size: .65rem; }
+.contact-option b { color: #71e4f1; }
+
+.contact-dialog {
+  width: min(540px, calc(100% - 30px));
+  border: 0;
+  padding: 0;
+  background: #edfaff;
+  color: #123443;
+  box-shadow: 0 24px 80px rgba(18, 63, 80, .3);
+}
+
+.contact-dialog::backdrop { background: rgba(13, 54, 69, .55); backdrop-filter: blur(5px); }
+.contact-dialog-content { padding: 42px; }
+.contact-dialog-icon { color: #ea4335; font-size: 2.2rem; }
+.contact-dialog-icon.chatwork-dialog-icon { color: #2f80a8; }
+.contact-dialog-icon svg { width: 202px; height: 52px; }
+.contact-dialog-icon svg { width: 42px; height: 32px; }
+.contact-dialog-content h2 { margin-top: 10px; font-size: 2rem; }
+.contact-dialog-content > p:not(.eyebrow) { color: #55717c; font-size: .88rem; }
+.contact-details { display: grid; gap: 5px; margin: 24px 0; padding: 17px; border: 1px solid #c6e2e9; background: #fff; }
+.contact-details strong { margin-top: 8px; color: #159db5; font-size: .7rem; letter-spacing: .08em; }
+.contact-details span { font-size: .82rem; overflow-wrap: anywhere; }
+
+@media (max-width: 520px) {
+  .contact-dialog-content { padding: 30px 22px; }
+}
+
+/* Final dark-surface overrides keep every major page band in the same visual system. */
+.contact-section {
+  background: #07111e !important;
+  color: #e8f7ff !important;
+}
+
+.contact-section p:not(.eyebrow) {
+  color: #9db2c0 !important;
+}
+
+.work-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+.work-card {
+  min-height: 430px !important;
+}
+
+.work-screenshot,
+.work-screenshot-placeholder {
+  height: 220px !important;
+  margin: -22px -22px 24px !important;
+  width: calc(100% + 44px) !important;
+}
+
+.work-screenshot {
+  object-fit: cover !important;
+}
+
+/* Let each real project screenshot lead the card without the old placeholder label. */
+.work-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+.work-card {
+  min-height: 430px;
+}
+
+.work-screenshot,
+.work-screenshot-placeholder {
+  height: 220px !important;
+  margin: -22px -22px 24px !important;
+  width: calc(100% + 44px) !important;
+}
+
+.work-screenshot {
+  object-fit: cover;
+}
+
+.work-card {
+  background: rgba(10, 25, 40, .92) !important;
+  border-color: rgba(112, 203, 231, .2) !important;
+}
+
+.work-card::before {
+  display: none;
+}
+
+.work-screenshot,
+.work-screenshot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 124px;
+  margin: -22px -22px 20px;
+  width: calc(100% + 44px);
+  object-fit: cover;
+  background: rgba(224, 249, 255, .96);
+  color: #55717c;
+  font: 600 .62rem 'DM Sans', sans-serif;
+  letter-spacing: .1em;
+}
+
+/* Restore the original light, contemporary atmosphere without changing content or behavior. */
+body {
+  --ink: #123443;
+  --muted: #55717c;
+  --paper: #f4fbff;
+  --accent: #71e4f1;
+  --line: #c6e2e9;
+  background: #e9faff !important;
+  background-image: linear-gradient(rgba(255, 255, 255, .2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .2) 1px, transparent 1px), radial-gradient(circle at 12% 10%, rgba(90, 216, 244, .34), transparent 25%), radial-gradient(circle at 86% 16%, rgba(156, 196, 255, .3), transparent 27%), radial-gradient(circle at 58% 88%, rgba(134, 239, 226, .24), transparent 32%) !important;
+  background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%, 100% 100% !important;
+  color: var(--ink) !important;
+}
+
+body::before {
+  background: radial-gradient(ellipse at 25% 0%, rgba(111, 229, 255, .3), transparent 42%), radial-gradient(ellipse at 78% 42%, rgba(143, 180, 255, .24), transparent 38%), radial-gradient(ellipse at 38% 100%, rgba(100, 229, 207, .2), transparent 38%) !important;
+  filter: blur(34px) saturate(115%) !important;
+}
+
+body::after {
+  background: linear-gradient(112deg, transparent 0 32%, rgba(255, 255, 255, .2) 44%, transparent 56%), radial-gradient(ellipse at center, transparent 38%, rgba(54, 139, 168, .08) 100%) !important;
+  mix-blend-mode: normal !important;
+}
+
+.site-header,
+.site-footer {
+  background: rgba(250, 254, 255, .78) !important;
+  border-color: rgba(92, 177, 199, .22) !important;
+  color: var(--ink) !important;
+}
+
+.light-section {
+  background: rgba(239, 251, 255, .78) !important;
+}
+
+.hero-visual {
+  background: linear-gradient(135deg, #d8f7ff, #dfe8ff 52%, #d8fbf4) !important;
+  box-shadow: inset 0 0 90px rgba(0, 190, 220, .1), 0 0 50px rgba(82, 193, 225, .12);
+}
+
+.visual-grid {
+  background-image: linear-gradient(rgba(36, 152, 177, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(36, 152, 177, .1) 1px, transparent 1px) !important;
+}
+
+.skill-group,
+.process-list div,
+.service-grid article,
+.work-card {
+  background: rgba(255, 255, 255, .72) !important;
+  border-color: rgba(105, 184, 203, .25) !important;
+}
+
+.tag,
+.work-tags span,
+.dialog-tags span {
+  background: rgba(108, 214, 226, .12) !important;
+  border-color: rgba(76, 168, 188, .24) !important;
+  color: #2d6371 !important;
+}
+
+.work-card::before,
+.work-screenshot-placeholder {
+  display: flex;
+  background: rgba(255, 255, 255, .95) !important;
+  color: #6c929e !important;
+}
+
+.project-dialog,
+.contact-dialog {
+  background: #f4fbff !important;
+  color: #123443 !important;
+  border-color: rgba(57, 167, 190, .28) !important;
+}
+
+.contact-details {
+  background: #fff !important;
+  border-color: #c6e2e9 !important;
+}
+
+.contact-section {
+  background: #e5f8fc !important;
+  color: #123443 !important;
+}
+
+.contact-section p:not(.eyebrow) {
+  color: #55717c !important;
+}
+
+/* AI-era atmosphere: light emerging from a deep, imposing space. */
+body {
+  --ink: #e8f7ff;
+  --muted: #9db2c0;
+  --paper: #070c16;
+  --accent: #65efff;
+  --line: rgba(127, 191, 220, .2);
+  background: #050811 !important;
+  background-image: linear-gradient(rgba(103, 192, 230, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(103, 192, 230, .055) 1px, transparent 1px), radial-gradient(circle at 15% 8%, rgba(0, 216, 255, .17), transparent 25%), radial-gradient(circle at 86% 16%, rgba(74, 75, 255, .18), transparent 27%), radial-gradient(circle at 50% 92%, rgba(0, 153, 190, .12), transparent 32%) !important;
+  background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%, 100% 100% !important;
+  color: var(--ink) !important;
+}
+
+body::before {
+  background: radial-gradient(ellipse at 30% 0%, rgba(40, 234, 255, .2), transparent 42%), radial-gradient(ellipse at 78% 42%, rgba(89, 66, 255, .16), transparent 38%), radial-gradient(ellipse at 38% 100%, rgba(0, 185, 220, .13), transparent 38%) !important;
+  filter: blur(36px) saturate(125%) !important;
+}
+
+body::after {
+  background: linear-gradient(112deg, transparent 0 32%, rgba(97, 231, 255, .045) 44%, transparent 56%), radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, .42) 100%) !important;
+  mix-blend-mode: screen !important;
+}
+
+.site-header,
+.site-footer {
+  background: rgba(5, 8, 17, .78) !important;
+  border-color: rgba(127, 191, 220, .18) !important;
+  color: #dff7ff !important;
+}
+
+.light-section,
+.contact-section {
+  background: rgba(8, 17, 30, .82) !important;
+  color: #e8f7ff !important;
+}
+
+.hero-visual {
+  background: linear-gradient(135deg, #0c1d2c, #111735 52%, #092933) !important;
+  box-shadow: inset 0 0 90px rgba(0, 216, 255, .08), 0 0 50px rgba(0, 216, 255, .08);
+}
+
+.visual-grid {
+  background-image: linear-gradient(rgba(89, 225, 255, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(89, 225, 255, .12) 1px, transparent 1px) !important;
+}
+
+.skill-group,
+.process-list div,
+.service-grid article,
+.work-card {
+  background: rgba(9, 21, 35, .9) !important;
+  border-color: rgba(112, 203, 231, .2) !important;
+}
+
+.tag,
+.work-tags span,
+.dialog-tags span {
+  background: rgba(73, 177, 207, .12) !important;
+  border-color: rgba(111, 217, 241, .25) !important;
+  color: #c9f6ff !important;
+}
+
+.work-card::before,
+.work-screenshot-placeholder {
+  background: rgba(224, 249, 255, .96) !important;
+  color: #55717c !important;
+}
+
+.project-dialog,
+.contact-dialog {
+  background: #0a1524 !important;
+  color: #e8f7ff !important;
+  border-color: rgba(101, 239, 255, .28) !important;
+}
+
+.contact-details {
+  background: #101f31 !important;
+  border-color: rgba(101, 239, 255, .22) !important;
+}
+
+.contact-section p:not(.eyebrow) {
+  color: #9db2c0 !important;
+}

@@ -1,0 +1,213 @@
+.work-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+.work-card {
+  min-height: 430px !important;
+}
+
+.work-screenshot,
+.work-screenshot-placeholder {
+  height: 220px !important;
+  margin: -22px -22px 24px !important;
+  width: calc(100% + 44px) !important;
+}
+
+.work-screenshot {
+  object-fit: cover !important;
+}
+
+.work-stage {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: auto !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.work-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  height: auto !important;
+  width: min(100%, 1020px) !important;
+  max-width: 1020px !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  justify-items: center !important;
+}
+
+.work-card {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  min-height: 430px !important;
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+.work-card:hover,
+.work-card:focus,
+.work-card:focus-visible {
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+@keyframes work-card-enter {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.work-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin: 0 0 24px;
+  color: var(--muted);
+  font: 600 .75rem 'DM Sans', sans-serif;
+}
+
+.work-carousel {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 72px;
+  align-items: center;
+  gap: 18px;
+}
+
+.work-carousel .work-navigation {
+  display: none;
+}
+
+.work-carousel .work-nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 42px;
+  white-space: nowrap;
+}
+
+.work-position {
+  margin: 18px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font: 600 .72rem 'DM Sans', sans-serif;
+}
+
+.work-carousel .work-stage {
+  min-width: 0;
+}
+
+.work-carousel .work-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch;
+  justify-content: center !important;
+  justify-items: center !important;
+  margin: 0 auto !important;
+}
+
+.work-carousel .work-card {
+  min-width: 0;
+  width: 100% !important;
+  display: block !important;
+}
+
+.work-carousel .work-screenshot,
+.work-carousel .work-screenshot-placeholder {
+  width: 100% !important;
+  height: 220px !important;
+  margin: -22px 0 24px !important;
+}
+
+.work-nav-button {
+  padding: 9px 13px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: none !important;
+  transform: none !important;
+}
+
+.work-nav-button:hover:not(:disabled) {
+  background: transparent !important;
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.work-nav-button:disabled {
+  cursor: not-allowed;
+  opacity: .35;
+}
+
+@media (max-width: 800px) {
+  .work-carousel {
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    gap: 8px;
+  }
+
+  .work-carousel .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .work-carousel .work-nav-button span {
+    display: none;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .work-card {
+    min-height: 0 !important;
+  }
+
+  .work-screenshot,
+  .work-screenshot-placeholder {
+    height: 220px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .work-carousel {
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    gap: 5px;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .work-carousel .work-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .work-carousel .work-nav-button {
+    padding: 8px 5px;
+    font-size: .72rem;
+  }
+}

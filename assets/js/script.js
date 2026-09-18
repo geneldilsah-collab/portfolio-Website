@@ -1,251 +1,33 @@
-$(document).ready(function () {
-
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
-
-    $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
-
-        if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
-        } else {
-            document.querySelector('#scroll-top').classList.remove('active');
-        }
-
-        // scroll spy
-        $('section').each(function () {
-            let height = $(this).height();
-            let offset = $(this).offset().top - 200;
-            let top = $(window).scrollTop();
-            let id = $(this).attr('id');
-
-            if (top > offset && top < offset + height) {
-                $('.navbar ul li a').removeClass('active');
-                $('.navbar').find(`[href="#${id}"]`).addClass('active');
-            }
-        });
-    });
-
-    // smooth scrolling
-    $('a[href*="#"]').on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
-    });
-
-    // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
-    // <!-- emailjs to mail contact form data -->
-
-});
-
-document.addEventListener('visibilitychange',
-    function () {
-        if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
-            $("#favicon").attr("href", "assets/images/favicon.png");
-        }
-        else {
-            document.title = "Come Back To Portfolio";
-            $("#favicon").attr("href", "assets/images/favhand.png");
-        }
-    });
-
-
-// <!-- typed js effect starts -->
-var typed = new Typed(".typing-text", {
-    strings: ["frontend development", "backend development", "web designing", "android development", "web development"],
-    loop: true,
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 500,
-});
-// <!-- typed js effect ends -->
-
-async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
-    const data = await response.json();
-    return data;
+const skillGroups = [{title:'CMS',items:['WordPress']},{title:'バックエンド',items:['PHP','Laravel','C# .NET','Python']},{title:'フロントエンド',items:['HTML','CSS','JavaScript','TypeScript','React','Next.js']},{title:'データベース',items:['MySQL']},{title:'Web・外部連携',items:['REST API','API連携','外部サービス連携']},{title:'EC・AI活用',items:['WooCommerce','EC機能カスタマイズ','生成AI','LLM','AI API連携']}];
+document.querySelector('#skillsContainer').innerHTML=skillGroups.map(group=>`<article class="skill-group"><h3>${group.title}</h3><div class="tags">${group.items.map(item=>`<span class="tag">${item}</span>`).join('')}</div></article>`).join('');
+const worksContainer=document.querySelector('#worksContainer');const dialog=document.querySelector('#projectDialog');const dialogContent=document.querySelector('#dialogContent');const workPosition=document.querySelector('#workPosition');let projects=[];let visibleProjects=[];let workPage=0;
+function normalizeCategory(value){return value==='AI・連携'?'AI関連':value}
+function workPageSize(){
+  return window.innerWidth<=520 ? 1 : 3;
 }
-
-function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
-    skills.forEach(skill => {
-        skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
-    });
-    skillsContainer.innerHTML = skillHTML;
-}
-
-function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
-    let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
-        projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>`
-    });
-    projectsContainer.innerHTML = projectHTML;
-
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
-
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
-
-}
-
-fetchData().then(data => {
-    showSkills(data);
-});
-
-fetchData("projects").then(data => {
-    showProjects(data);
-});
-
-// <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-});
-// <!-- tilt js effect ends -->
-
-
-// pre loader start
-// function loader() {
-//     document.querySelector('.loader-container').classList.add('fade-out');
-// }
-// function fadeOut() {
-//     setInterval(loader, 500);
-// }
-// window.onload = fadeOut;
-// pre loader end
-
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-}
-
-// Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-// End of Tawk.to Live Chat
-
-
-/* ===== SCROLL REVEAL ANIMATION ===== */
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
-});
-
-/* SCROLL HOME */
-srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.home .content p', { delay: 200 });
-srtop.reveal('.home .content .btn', { delay: 200 });
-
-srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .twitter', { interval: 1000 });
-srtop.reveal('.home .telegram', { interval: 600 });
-srtop.reveal('.home .instagram', { interval: 600 });
-srtop.reveal('.home .dev', { interval: 600 });
-
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { delay: 200 });
-srtop.reveal('.about .content .tag', { delay: 200 });
-srtop.reveal('.about .content p', { delay: 200 });
-srtop.reveal('.about .content .box-container', { delay: 200 });
-srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-
-/* SCROLL SKILLS */
-srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.skills .container .bar', { delay: 400 });
-
-/* SCROLL EDUCATION */
-srtop.reveal('.education .box', { interval: 200 });
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
-
-/* SCROLL EXPERIENCE */
-srtop.reveal('.experience .timeline', { delay: 400 });
-srtop.reveal('.experience .timeline .container', { interval: 400 });
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
+function renderWorks(filter='all'){const normalizedFilter=filter==='all'?'all':normalizeCategory(filter);visibleProjects=normalizedFilter==='all'?projects:projects.filter(project=>normalizeCategory(project.category)===normalizedFilter);workPage=0;renderWorkPage()}
+function renderWorkPage(){const pageSize=workPageSize();const totalPages=Math.max(1,Math.ceil(visibleProjects.length/pageSize));workPage=Math.min(workPage,totalPages-1);const pageProjects=visibleProjects.slice(workPage*pageSize,(workPage+1)*pageSize);worksContainer.innerHTML=pageProjects.map((project,index)=>`<article class="work-card${project.placeholder?' is-placeholder':''}" data-index="${projects.indexOf(project)}" tabindex="0" role="button"><div class="work-top"><span>${String(workPage*pageSize+index+1).padStart(2,'0')}</span><span>${project.category}</span></div>${project.screenshot&&project.screenshot!=='画像を追加'?`<img class="work-screenshot" src="${project.screenshot}" alt="${project.name}のスクリーンショット" loading="lazy">`:'<div class="work-screenshot-placeholder">スクリーンショットを追加</div>'}<div><h3>${project.name}</h3><p>${project.overview}</p><div class="work-tags">${project.technologies.map(tag=>`<span>${tag}</span>`).join('')}</div></div></article>`).join('');document.querySelectorAll('.work-card').forEach(card=>{card.addEventListener('click',()=>openProject(Number(card.dataset.index)));card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' ')openProject(Number(card.dataset.index))})});updateWorkNavigation()}
+function updateWorkNavigation(){const totalPages=Math.max(1,Math.ceil(visibleProjects.length/workPageSize()));workPosition.textContent=visibleProjects.length?`${workPage+1} / ${totalPages}`:'0 / 0';document.querySelector('#workPrevious').disabled=workPage===0||!visibleProjects.length;document.querySelector('#workNext').disabled=workPage>=totalPages-1||!visibleProjects.length}
+function moveWork(direction){const totalPages=Math.max(1,Math.ceil(visibleProjects.length/workPageSize()));workPage=Math.max(0,Math.min(totalPages-1,workPage+direction));renderWorkPage();document.querySelector('#works').scrollIntoView({behavior:'smooth',block:'start'})}
+function openProject(index){const project=projects[index];dialogContent.innerHTML=`<div class="dialog-inner"><p class="eyebrow">${project.category}</p><h2>${project.name}</h2><p class="lead-copy">${project.overview}</p><div class="dialog-grid"><div><h3>使用技術スタック</h3><div class="dialog-tags">${project.technologies.map(tag=>`<span>${tag}</span>`).join('')}</div></div></div></div>`;dialog.showModal()}
+fetch('./projects/projects.json').then(response=>response.json()).then(data=>{projects=data;renderWorks()}).catch(()=>{projects=[{name:'プロジェクト名',category:'Web制作',overview:'ここにプロジェクト概要を入力してください',role:'ここに担当範囲を入力してください',responsibilities:'ここに対応内容を入力してください',developmentDetails:'ここに課題と対応方法を入力してください',result:'ここに結果を入力してください',technologies:['WordPress','PHP','JavaScript'],url:'URLを入力',placeholder:true}];renderWorks()});
+document.querySelectorAll('.filter-button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter-button').forEach(item=>item.classList.remove('is-active'));button.classList.add('is-active');renderWorks(button.dataset.filter)}));document.querySelector('#workPrevious').addEventListener('click',()=>moveWork(-1));document.querySelector('#workNext').addEventListener('click',()=>moveWork(1));document.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+const menuToggle=document.querySelector('.menu-toggle');const siteNav=document.querySelector('#site-nav');menuToggle.addEventListener('click',()=>{const isOpen=siteNav.classList.toggle('is-open');menuToggle.setAttribute('aria-expanded',String(isOpen))});siteNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{siteNav.classList.remove('is-open');menuToggle.setAttribute('aria-expanded','false')}));
+const cursor=document.querySelector('.cursor-droplet');const trail=document.querySelector('.cursor-trail');let cursorX=0;let cursorY=0;let trailX=0;let trailY=0;
+document.addEventListener('pointermove',event=>{cursorX=event.clientX;cursorY=event.clientY;cursor.style.transform=`translate(${cursorX}px,${cursorY}px) rotate(-45deg)`});function animateCursor(){trailX+=(cursorX-trailX)*.16;trailY+=(cursorY-trailY)*.16;trail.style.transform=`translate(${trailX}px,${trailY}px)`;requestAnimationFrame(animateCursor)}animateCursor();
+document.addEventListener('pointerdown',event=>{if(event.pointerType==='touch')return;cursor.classList.add('is-pressed');for(let index=0;index<8;index+=1){const splash=document.createElement('span');const angle=(Math.PI*2/8)*index;const distance=28+Math.random()*35;splash.className='droplet-splash';splash.style.left=`${event.clientX-4}px`;splash.style.top=`${event.clientY-4}px`;splash.style.setProperty('--dx',`${Math.cos(angle)*distance}px`);splash.style.setProperty('--dy',`${Math.sin(angle)*distance}px`);document.body.appendChild(splash);const removeSplash=()=>{if(splash.isConnected)splash.remove()};splash.addEventListener('animationend',removeSplash);window.setTimeout(removeSplash,800)}});document.addEventListener('pointerup',()=>cursor.classList.remove('is-pressed'));
+const contactDialog=document.querySelector('#contactDialog');const contactDetails=document.querySelector('#contactDetails');const contactTitle=document.querySelector('#contactDialogTitle');const contactText=document.querySelector('#contactDialogText');const contactIcon=document.querySelector('#contactDialogIcon');const contactAction=document.querySelector('#contactAction');
+document.querySelectorAll('.contact-option').forEach(option=>option.addEventListener('click',()=>{const isGmail=option.dataset.contact==='gmail';contactTitle.textContent=isGmail?'Gmailで相談':'Chatworkで相談';contactIcon.className=`contact-dialog-icon ${isGmail?'gmail-dialog-icon':'chatwork-dialog-icon'}`;contactIcon.innerHTML=isGmail?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5v11A2.5 2.5 0 0 0 5 20h14a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 19 4.5H5A2.5 2.5 0 0 0 2.5 6.5Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 6 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h14A2.5 2.5 0 0 1 21.5 7v8A2.5 2.5 0 0 1 19 17.5H11l-4.8 3v-3H5A2.5 2.5 0 0 1 2.5 15V7A2.5 2.5 0 0 1 5 4.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 9.5h10M7 12.5h7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';contactText.textContent=isGmail?'メールアプリを開く前に、送信先と相談内容を確認できます。':'Chatworkの連携先を確認してから、相談画面へ進めます。';contactDetails.innerHTML=isGmail?'<strong>送信先</strong><span>geneldilsah@gmail.com</span><strong>相談内容</strong><span>Web制作・Webシステム開発・AI活用について</span>':'<strong>Chatwork連携先</strong><span>miracledayo225</span><strong>プロフィール</strong><span>https://www.chatwork.com/miracledayo225</span>';contactAction.textContent=isGmail?'メールを作成する ↗':'Chatworkを開く ↗';contactAction.href=isGmail?'mailto:geneldilsah@gmail.com':'https://www.chatwork.com/miracledayo225';contactAction.target=isGmail?'':'_blank';contactAction.rel=isGmail?'':'noreferrer';contactDialog.showModal()}));document.querySelector('.contact-dialog-close').addEventListener('click',()=>contactDialog.close());contactDialog.addEventListener('click',event=>{if(event.target===contactDialog)contactDialog.close()});
+const gmailLogo='<svg viewBox="0 0 32 24" aria-hidden="true"><path d="M2 5.2A3.2 3.2 0 0 1 5.2 2h21.6A3.2 3.2 0 0 1 30 5.2v13.6a3.2 3.2 0 0 1-3.2 3.2H5.2A3.2 3.2 0 0 1 2 18.8Z" fill="#fff"/><path d="M3.5 4.5 16 14 28.5 4.5" fill="none" stroke="#ea4335" stroke-width="3"/><path d="M3.5 19.5 12.5 12.7M28.5 19.5 19.5 12.7" fill="none" stroke="#4285f4" stroke-width="3"/><path d="M3.5 4.5v15M28.5 4.5v15" fill="none" stroke="#34a853" stroke-width="3"/></svg>';
+const chatworkLogo='<svg viewBox="0 0 32 24" aria-hidden="true"><circle cx="9" cy="8" r="4.2" fill="#ff5263"/><circle cx="20" cy="7" r="4.2" fill="#ff5263"/><circle cx="14" cy="15.5" r="4.2" fill="#ff5263"/><circle cx="24" cy="16" r="4.2" fill="#ff5263"/><circle cx="5" cy="17" r="3.2" fill="#ff5263"/></svg>';
+document.querySelectorAll('.contact-option').forEach(option=>option.addEventListener('click',()=>{contactIcon.innerHTML=option.dataset.contact==='gmail'?gmailLogo:chatworkLogo}));
+const gmailLockup='<svg viewBox="0 0 166 42" aria-label="Gmail" role="img"><path d="M3 9a6 6 0 0 1 6-6h30a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6Z" fill="#fff"/><path d="m6 7 18 14L42 7" fill="none" stroke="#ea4335" stroke-width="4"/><path d="M6 35 19 24.5M42 35 29 24.5" fill="none" stroke="#4285f4" stroke-width="4"/><path d="M6 7v28M42 7v28" fill="none" stroke="#34a853" stroke-width="4"/><text x="57" y="30" fill="currentColor" font-family="Arial,sans-serif" font-size="25">Gmail</text></svg>';
+const chatworkLockup='<svg viewBox="0 0 202 42" aria-label="Chatwork" role="img"><circle cx="10" cy="13" r="7" fill="#ff5263"/><circle cx="27" cy="10" r="7" fill="#ff5263"/><circle cx="19" cy="27" r="7" fill="#ff5263"/><circle cx="36" cy="25" r="7" fill="#ff5263"/><circle cx="4" cy="29" r="5" fill="#ff5263"/><text x="54" y="29" fill="currentColor" font-family="Arial,sans-serif" font-size="24" font-weight="600">Chatwork</text></svg>';
+document.querySelector('.gmail-icon').innerHTML=gmailLockup;
+document.querySelector('.chatwork-icon').innerHTML=chatworkLockup;
+document.querySelectorAll('.contact-option').forEach(option=>option.addEventListener('click',()=>{contactIcon.innerHTML=option.dataset.contact==='gmail'?gmailLockup:chatworkLockup}));
+const gmailMark='<svg viewBox="0 0 32 24" aria-label="Gmail" role="img"><path d="M2 4.5 16 15 30 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-23A2.5 2.5 0 0 1 2 19.5Z" fill="#fff"/><path d="M2 4.5 16 15 30 4.5" fill="none" stroke="#ea4335" stroke-width="3.2"/><path d="M2 19.5V4.5M30 19.5V4.5" fill="none" stroke="#4285f4" stroke-width="3.2"/><path d="M2 4.5v15M30 4.5v15" fill="none" stroke="#34a853" stroke-width="3.2"/></svg>';
+const chatworkMark='<svg viewBox="0 0 32 24" aria-label="Chatwork" role="img"><circle cx="9" cy="8" r="4.8" fill="#ff5263"/><circle cx="20" cy="7" r="4.8" fill="#dfe6ed"/><circle cx="14" cy="16" r="4.8" fill="#ff5263"/><circle cx="24" cy="16" r="4.8" fill="#ff5263"/><circle cx="5" cy="17" r="3.8" fill="#ff5263"/></svg>';
+document.querySelector('.gmail-icon').innerHTML=gmailMark;
+document.querySelector('.chatwork-icon').innerHTML=chatworkMark;
+document.querySelectorAll('.contact-option').forEach(option=>option.addEventListener('click',()=>{contactIcon.innerHTML=option.dataset.contact==='gmail'?gmailMark:chatworkMark}));

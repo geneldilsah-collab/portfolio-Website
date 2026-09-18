@@ -1,411 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="jigar sable, portfolio, jigar, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-    <meta name="description" content="Welcome to Jigar's Portfolio. Full-Stack Web Developer and Android App Developer" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
-    <title>Portfolio | Jigar Sable</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Susanoo。Webシステム開発・Webサイト制作・サービス開発に8年間携わってきたフルスタックエンジニアのポートフォリオ。">
+  <meta property="og:title" content="Susanoo｜Web制作・システム開発">
+  <meta property="og:description" content="要件整理から公開後の改善まで、Web制作・システム開発を一貫して支援します。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <title>Susanoo｜Web制作・システム開発</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/interaction-overrides.css">
+  <link rel="stylesheet" href="./assets/css/work-card-overrides.css">
 </head>
-<body oncontextmenu="return false">
-
-<!-- pre loader -->
-<!-- <div class="loader-container">
-  <img draggable="false" src="./assets/images/preloader.gif" alt="">
-</div> -->
-
-<!-- navbar starts -->
-<header>
-        <a href="/" class="logo"><i class="fab fa-node-js"></i> Jigar</a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-</header>
-<!-- navbar ends -->
-
-
-<!-- hero section starts -->
-<section class="home" id="home">
-    <div id="particles-js"></div>
-
-    <div class="content">
-    <h2>Hi There,<br/> I'm Jigar <span>Sable</span></h2>
-    <p>i am into <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/jigar-sable/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
-          <li><a class="github" aria-label="GitHub" href="https://github.com/jigar-sable" target="_blank"><i class="fab fa-github"></i></a></li>
-          <li><a class="twitter" aria-label="Twitter" href="https://twitter.com/jigar_sable" target="_blank"><i class="fab fa-twitter"></i></a></li>
-          <li><a class="telegram" aria-label="Telegram" href="https://t.me/lifecode5" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
-          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/jigarsable.dev"><i class="fab fa-instagram" target="_blank"></i></a></li>
-          <li><a class="dev" aria-label="Dev" href="https://dev.to/jigarsable" target="_blank"><i class="fab fa-dev"></i></a></li>
-        </ul>
-      </div>
-    </div>
-<div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
-</div>
-</section>
-<!-- hero section ends -->
-
-
-<!-- about section starts -->
-<section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    
-    <div class="row">
-
-    <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
-    </div>
-    <div class="content">
-        <h3>I'm Jigar</h3>
-        <span class="tag">Full Stack Developer</span>
-        
-        <p>I am a Full-Stack developer based in Pune, India. 
-          I am an Information Technology undergraduate from SPPU.
-          I am very passionate about improving my coding skills & developing applications & websites.
-          I build WebApps and Websites using MERN Stack.
-          Working for myself to improve my skills.
-          Love to build Full-Stack clones. </p>
-        
-        <div class="box-container">
-            <!-- <div class="box">
-              <p><span> age: </span> 20</p>
-              <p><span> phone : </span> +91 XXX-XXX-XXXX</p>
-            </div> -->
-            <div class="box">
-              <p><span> email : </span> jigarsable21@gmail.com</p>
-              <p><span> place : </span> Pune, India - 412206</p>
-            </div>
-        </div>
-        
-        <div class="resumebtn">
-            <a href="https://drive.google.com/file/d/1rZiXl562q7aVyk1kJ2nO85YBAq8ixTiw/view" target="_blank" class="btn"><span>Resume</span>
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
-
-    </div>
-    </div>
-</section>
-<!-- about section ends -->
-
-<!-- skills section starts -->
-<section class="skills" id="skills">
-
-    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
-
-    <div class="container">
-          <div class="row" id="skillsContainer">
-
-            <!-- <div class="bar">
-              <div class="info">
-                <img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/>
-                <span>AdobeXD</span>
-              </div>
-            </div> -->
-
-      </div>
-</div>
-</section>
-<!-- skills section ends -->
-
-
-<!-- education section starts -->
-<section class="education" id="education">
-
-  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
-
-    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
-
-    <div class="box-container">
-
-    <div class="box">
-        <div class="image">
-        <img draggable="false" src="./assets/images/educat/college.jpg" alt="">
-        </div>
-        <div class="content">
-        <h3>Bachelor of Engineering in Information Technology</h3>
-        <p>Zeal College of engineering and research | SPPU</p>
-        <h4>2020-2024 | Pursuing</h4>
-        </div>
-    </div>
-
-    <div class="box">
-      <div class="image">
-      <img draggable="false" src="./assets/images/educat/school.jpg" alt="">
-      </div>
-      <div class="content">
-      <h3>HSC Science | Informatic Practices</h3>
-      <p>Shri  L. G. Haria Multipurpose School | CBSE</p>
-      <h4>2018-2020 | Completed</h4>
-      </div>
-    </div>
-
-</div>
-</section>
-<!-- education section ends -->
-
-
-<!-- work project section starts -->
-<section class="work" id="work">
-
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
-
-  <div class="box-container">
-
-    <!-- <div class="box tilt">
-      <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
-      <div class="content">
-        <div class="tag">
-        <h3>Portfolio Website</h3>
-        </div>
-        <div class="desc">
-          <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
-          <div class="btns">
-            <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="https://github.com/jigar-sable/Portfolio-Website" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-</div>
-
-<div class="viewall">
-  <a href="/projects" class="btn"><span>View All</span>
-    <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-
-</section>
-<!-- work project section ends -->
-
-<!-- experience section starts -->
-<section class="experience" id="experience">
-
-  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
-
-  <div class="timeline">
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Self Employed</h2>
-        </div>
-        <div class="desc">
-            <h3>Full Stack Developer</h3>
-            <p>Oct 2021 - present</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>Mapstreak Flyseas</h2>
-        </div>
-        <div class="desc">
-            <h3>Web Developer | Internship</h3>
-            <p>June 2021 - Dec 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>The Spark Foundation</h2>
-        </div>
-        <div class="desc">
-            <h3>Website Developer | Internship</h3>
-            <p>May 2021 - June 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>The Spark Foundation</h2>
-        </div>
-        <div class="desc">
-            <h3>Mobile Application Developer | Internship</h3>
-            <p>April 2021 - May 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container right">
-      <div class="content">
-        <div class="tag">
-          <h2>Frshr Technologies</h2>
-        </div>
-        <div class="desc">
-            <h3>Wordpress Developer | Internship</h3>
-            <p>April 2021 - April 2021</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container left">
-      <div class="content">
-        <div class="tag">
-          <h2>WonderingBlog</h2>
-        </div>
-        <div class="desc">
-            <h3>Web Development & SEO | Internship</h3>
-            <p>March 2021 - April 2021</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="morebtn">
-    <a href="/experience" class="btn"><span>View All</span>
-      <i class="fas fa-arrow-right"></i>
-  </a>
-  </div>
-
-</div>
-
-</section>
-<!-- experience section ends -->
-
-<!-- contact section starts -->
-<section class="contact" id="contact">
-  
-  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-
-  <div class="container">
-    <div class="content">
-      <div class="image-box">
-        <img draggable="false" src="./assets/images/contact1.png" alt="">
-      </div>
-    <form id="contact-form">
-      
-      <div class="form-group">
-        <div class="field">
-          <input type="text" name="name" placeholder="Name" required>
-          <i class='fas fa-user'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="email" placeholder="Email" required>
-          <i class='fas fa-envelope'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="phone" placeholder="Phone">
-          <i class='fas fa-phone-alt'></i>
-        </div>
-        <div class="message">
-        <textarea placeholder="Message" name="message" required></textarea>
-        <i class="fas fa-comment-dots"></i>
-        </div>
-        </div>
-      <div class="button-area">
-        <button type="submit">
-          Submit <i class="fa fa-paper-plane"></i></button>
-      </div>
-    </form>
-  </div>
-  </div>
-</section>
-<!-- contact section ends -->
-
-
-<!-- footer section starts -->
-<section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Jigar's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
-          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+91 XXX-XXX-XXXX</p>
-          <p> <i class="fas fa-envelope"></i>jigarsable21@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Pune, India-412206</p>
-          <div class="share">
-
-              <a href="https://www.linkedin.com/in/jigar-sable" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
-              <a href="https://github.com/jigar-sable" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-              <a href="mailto:jigarsable21@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-              <a href="https://twitter.com/jigar_sable" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
-              <a href="https://t.me/lifecode5" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
-          </div>
-      </div>
-  </div>
-
-  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/jigar-sable"> jigar sable</a></h1>
-
-</section>
-<!-- footer section ends -->
-
-
-<!-- scroll top btn -->
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-<!-- scroll back to top -->
-
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- typed.js cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
-
-<!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
-
-<script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-    ></script>
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="./assets/js/script.js"></script>
-
+<body>
+  <div class="cursor-droplet" aria-hidden="true"></div>
+  <div class="cursor-trail" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Susanoo ホーム">SUSANOO <span>/</span> ポートフォリオ</a>
+    <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span><b>Menu</b></button>
+    <nav id="site-nav" class="site-nav" aria-label="メインナビゲーション">
+      <a href="#about">私について</a><a href="#skills">技術</a><a href="#services">対応内容</a><a href="#process">進め方</a><a href="#works">制作実績</a><a class="nav-contact" href="#contact">お問い合わせ <span>↗</span></a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy"><p class="eyebrow">Web制作 / システム開発</p><h1>Web制作から<br><em>システム開発</em>まで。</h1><p class="hero-lead">AIを活用しながら、企画・設計・開発・公開まで対応します。</p><p class="hero-text">8年以上のWeb制作・システム開発経験をもとに、案件に合わせた技術選定と丁寧な実装を行います。</p><div class="hero-actions"><a class="button button-dark" href="#works">制作実績を見る <span>↗</span></a><a class="text-link" href="#contact">相談する <span>→</span></a></div></div>
+      <div class="hero-visual" aria-label="Web開発のイメージ"><div class="hero-cloud cloud-one"></div><div class="hero-cloud cloud-two"></div><div class="hero-cloud cloud-three"></div><div class="visual-grid"></div><div class="code-card"><span>01</span><code>const <strong>solution</strong> = await<br>build({<br>&nbsp; clarity: true,<br>&nbsp; quality: true<br>});</code></div><div class="visual-note"><b>AIと技術で<br>未来をつくる</b><span>要件から、丁寧に。</span></div></div>
+      <div class="hero-meta"><span>スクロールしてご覧ください</span><span class="line"></span><span>01 — 07</span></div>
+    </section>
+    <section id="about" class="section-shell section about-section"><div class="about-identity"><figure class="about-landscape"><img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1200&q=85" alt="富士山と湖の日本の自然風景" loading="lazy"><figcaption>JAPAN / NATURE</figcaption></figure><div class="section-intro"><p class="eyebrow">01 / ABOUT ME</p><h2>技術だけでなく、<br><em>進め方</em>まで考える。</h2></div></div><div class="about-content"><p class="lead-copy">8年間にわたり、Webシステム開発・Webサイト制作・サービス開発に携わってきたフルスタックエンジニアです。</p><p>WordPressを使ったWebサイト制作から、PHP / LaravelによるWebシステム開発、JavaScript / React / Next.jsによるフロントエンド開発まで、企画・設計・実装・テスト・公開後の改善を一貫して対応しています。</p><p>ご相談内容をそのまま形にするだけではなく、現在の環境や要件を確認し、既存機能・プラグイン・カスタム開発の選択肢を整理したうえで、目的に合った実装方法をご提案します。AIも調査や実装、デバッグに活用しながら、最終的な品質確認は人が責任を持って行います。</p><div class="trust-list"><span>8年以上の経験</span><span>要件整理から公開まで</span><span>AI活用と人による品質確認</span></div></div></section>
+    <section id="skills" class="section-shell section light-section"><div class="section-heading"><p class="eyebrow">02 / 技術</p><h2>案件に合わせて、<em>選び、組み立てる。</em></h2></div><div class="skill-grid" id="skillsContainer"></div></section>
+    <section id="services" class="section-shell section"><div class="section-heading"><p class="eyebrow">03 / 対応内容</p><h2>任せられる範囲を、<em>明確に。</em></h2></div><div class="service-grid"><article><span class="service-no">01</span><h3>Webサイト制作</h3><p>事業や目的に合わせた、伝わるWebサイトを構築します。</p><ul><li>WordPressサイト / LP / ブログ</li><li>コーポレートサイト</li><li>カスタマイズ / レスポンシブ対応</li></ul></article><article><span class="service-no">02</span><h3>Webシステム開発</h3><p>業務に必要な機能を整理し、扱いやすいWebアプリへ。</p><ul><li>業務システム / 管理画面</li><li>データ処理 / API連携</li><li>外部サービス連携</li></ul></article><article><span class="service-no">03</span><h3>ECサイト</h3><p>販売・注文・決済に関わる機能を、環境に合わせて改善します。</p><ul><li>WooCommerce / EC構築</li><li>EC機能カスタマイズ</li><li>決済・注文 / 外部連携</li></ul></article><article><span class="service-no">04</span><h3>改善・AI活用</h3><p>既存環境を調査し、必要なところから無理なく改善します。</p><ul><li>不具合 / 表示速度 / コード改善</li><li>LLM / AI API連携</li><li>AIを活用した業務効率化</li></ul></article></div></section>
+    <section id="process" class="section-shell section process-section light-section"><div class="section-heading"><p class="eyebrow">04 / 進め方</p><h2>いきなり作らない。<br><em>まず、状況を理解する。</em></h2><p class="section-description">現在の環境・要件・既存機能を確認したうえで、実装方法を検討します。</p></div><div class="process-list"><div><b>01</b><h3>ヒアリング・要件整理</h3><p>目的と課題を言語化します。</p></div><div><b>02</b><h3>現状分析・課題整理</h3><p>既存環境と制約を確認します。</p></div><div><b>03</b><h3>仕様・実装方法の検討</h3><p>最適な手段を比較します。</p></div><div><b>04</b><h3>設計・開発</h3><p>設計に沿って実装します。</p></div><div><b>05</b><h3>テスト・確認</h3><p>動作と品質を確認します。</p></div><div><b>06</b><h3>公開・納品</h3><p>本番環境へ反映します。</p></div><div><b>07</b><h3>改善・保守</h3><p>公開後も継続支援します。</p></div></div></section>
+    <section id="works" class="section-shell section works-section"><div class="section-heading heading-row"><div><p class="eyebrow">05 / 制作実績</p><h2>これまでの成果物。<br><em>実績は、随時更新します。</em></h2></div><p class="section-description">案件情報は確認できた内容のみ掲載します。詳細はカードを選択してください。</p></div><div class="filter-list" role="group" aria-label="実績の絞り込み"><button class="filter-button is-active" data-filter="all">すべて</button><button class="filter-button" data-filter="ウェブ制作">ウェブ制作</button><button class="filter-button" data-filter="システム開発">システム開発</button><button class="filter-button" data-filter="AI関連">AI関連</button></div><div class="work-carousel" aria-label="制作実績カルーセル"><button type="button" id="workPrevious" class="work-nav-button" aria-label="前の制作実績">←<span>前へ</span></button><div class="work-stage"><div class="work-grid" id="worksContainer"></div></div><button type="button" id="workNext" class="work-nav-button" aria-label="次の制作実績"><span>次へ</span>→</button></div><p id="workPosition" class="work-position" aria-live="polite">1 / 2</p></section>
+    <section class="section-shell section ai-section"><div><p class="eyebrow">06 / AI活用</p><h2>AIを使う。<br><em>品質確認は、人が行う。</em></h2></div><div><p class="lead-copy">生成AI・LLM・AI APIを、開発の現場で役立つ道具として具体的に活用します。</p><p>要件や既存コードの調査、実装方針の比較、コード作成、テストケースの整理、デバッグ、ドキュメント作成までAIを活用して効率化します。AI APIを使った業務効率化やWebサービスの機能設計にも対応し、出力内容は要件・セキュリティ・保守性の観点から人が確認して品質を担保します。</p></div></section>
+    <section id="contact" class="section-shell section contact-section"><div><p class="eyebrow">07 / お問い合わせ</p><h2>まずは、課題を<br><em>聞かせてください。</em></h2><p>Webサイト制作・システム開発・既存サイトの改善など、お気軽にご相談ください。</p></div><div class="contact-card"><span>連絡先を選択</span><div class="contact-options"><button class="contact-option gmail-option" type="button" data-contact="gmail"><span class="contact-icon gmail-icon" aria-hidden="true"><svg viewBox="0 0 32 24" role="img"><path d="M2 5.2A3.2 3.2 0 0 1 5.2 2h21.6A3.2 3.2 0 0 1 30 5.2v13.6a3.2 3.2 0 0 1-3.2 3.2H5.2A3.2 3.2 0 0 1 2 18.8Z" fill="#fff"/><path d="M3.5 4.5 16 14 28.5 4.5" fill="none" stroke="#ea4335" stroke-width="3"/><path d="M3.5 19.5 12.5 12.7M28.5 19.5 19.5 12.7" fill="none" stroke="#4285f4" stroke-width="3"/><path d="M3.5 4.5v15M28.5 4.5v15" fill="none" stroke="#34a853" stroke-width="3"/></svg></span><span><strong>Gmailで相談</strong><small>メール連携の項目を表示</small></span><b>↗</b></button><button class="contact-option chatwork-option" type="button" data-contact="chatwork"><span class="contact-icon chatwork-icon" aria-hidden="true"><svg viewBox="0 0 32 24" role="img"><circle cx="9" cy="8" r="4.2" fill="#ff5263"/><circle cx="20" cy="7" r="4.2" fill="#ff5263"/><circle cx="14" cy="15.5" r="4.2" fill="#ff5263"/><circle cx="24" cy="16" r="4.2" fill="#ff5263"/><circle cx="5" cy="17" r="3.2" fill="#ff5263"/></svg></span><span><strong>Chatworkで相談</strong><small>Chatwork連携の項目を表示</small></span><b>↗</b></button></div></div></section>
+  </main>
+  <footer class="site-footer section-shell"><a class="brand" href="#top">SUSANOO <span>/</span> ポートフォリオ</a><p>Web制作とシステム開発を、丁寧に。</p><span>© 2026 Susanoo</span></footer>
+  <dialog id="projectDialog" class="project-dialog"><button class="dialog-close" type="button" aria-label="詳細を閉じる">×</button><div id="dialogContent"></div></dialog>
+  <dialog id="contactDialog" class="contact-dialog"><button class="dialog-close contact-dialog-close" type="button" aria-label="連携画面を閉じる">×</button><div class="contact-dialog-content"><p class="eyebrow">お問い合わせ連携</p><div class="contact-dialog-icon" id="contactDialogIcon"><svg viewBox="0 0 32 24" aria-hidden="true"><path d="M2 5.2A3.2 3.2 0 0 1 5.2 2h21.6A3.2 3.2 0 0 1 30 5.2v13.6a3.2 3.2 0 0 1-3.2 3.2H5.2A3.2 3.2 0 0 1 2 18.8Z" fill="#fff"/><path d="M3.5 4.5 16 14 28.5 4.5" fill="none" stroke="#ea4335" stroke-width="3"/><path d="M3.5 19.5 12.5 12.7M28.5 19.5 19.5 12.7" fill="none" stroke="#4285f4" stroke-width="3"/><path d="M3.5 4.5v15M28.5 4.5v15" fill="none" stroke="#34a853" stroke-width="3"/></svg></div><h2 id="contactDialogTitle">Gmailで相談</h2><p id="contactDialogText">メールアプリを開かず、この画面で宛先と内容を確認できます。</p><div class="contact-details" id="contactDetails"></div><a id="contactAction" class="button button-dark" href="mailto:geneldilsah@gmail.com">メールを作成する <span>↗</span></a></div></dialog>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
