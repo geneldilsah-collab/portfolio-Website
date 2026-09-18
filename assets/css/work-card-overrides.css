@@ -52,30 +52,37 @@
   rotate: none !important;
   filter: none !important;
   box-shadow: none !important;
-  animation: none !important;
-  transition: none !important;
+  animation: work-card-enter .38s cubic-bezier(.2, .6, .2, 1) both;
+  transition: transform .32s ease, opacity .32s ease, box-shadow .32s ease !important;
 }
 
 .work-card:hover,
 .work-card:focus,
 .work-card:focus-visible {
-  transform: none !important;
+  transform: translateY(-2px) !important;
   translate: none !important;
   rotate: none !important;
   filter: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 8px 24px rgba(18, 26, 23, .08) !important;
   animation: none !important;
-  transition: none !important;
+  transition: transform .24s ease, box-shadow .24s ease !important;
 }
 
 @keyframes work-card-enter {
   0% {
-    opacity: 1;
-    transform: none;
+    opacity: 0;
+    transform: translate3d(18px, 10px, 0) scale(.985);
+    filter: blur(7px);
+  }
+  30% {
+    opacity: .75;
+    transform: translate3d(8px, 4px, 0) scale(1.005);
+    filter: blur(2px);
   }
   100% {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
   }
 }
 
