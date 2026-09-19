@@ -9,6 +9,12 @@ body {
   background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%, 100% 100% !important;
 }
 
+.about-section h2,
+.section-heading h2 {
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
 body::before {
   background: radial-gradient(ellipse at 30% 0%, rgba(40, 234, 255, .2), transparent 42%), radial-gradient(ellipse at 78% 42%, rgba(89, 66, 255, .16), transparent 38%), radial-gradient(ellipse at 38% 100%, rgba(0, 185, 220, .13), transparent 38%) !important;
   filter: blur(36px) saturate(125%) !important;
@@ -518,6 +524,34 @@ body::after {
 
 .visual-grid {
   background-image: linear-gradient(rgba(89, 225, 255, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(89, 225, 255, .12) 1px, transparent 1px) !important;
+}
+
+.hero-visual .code-card {
+  background: linear-gradient(145deg, #1d2d38, #121f2a 60%, #0d1b24) !important;
+  border: 1px solid rgba(139, 196, 218, .18) !important;
+  box-shadow: 0 24px 36px rgba(2, 8, 17, .52), 0 0 0 1px rgba(164, 208, 225, .08), 14px 14px 0 rgba(9, 17, 27, .34) !important;
+  transform: perspective(900px) rotateX(8deg) rotateY(-7deg) rotateZ(3deg) !important;
+}
+
+.hero-visual .code-card span {
+  color: #9dbf75 !important;
+}
+
+.hero-visual .visual-note {
+  background: linear-gradient(145deg, #627f96, #2a485d 58%, #1c2d3a) !important;
+  border: 1px solid rgba(169, 211, 224, .18) !important;
+  box-shadow: 0 24px 34px rgba(2, 8, 17, .5), 0 0 0 1px rgba(161, 208, 220, .08), 18px 18px 0 rgba(8, 16, 25, .28) !important;
+  transform: perspective(900px) rotateX(7deg) rotateY(8deg) rotateZ(-2deg) !important;
+}
+
+.hero-visual .visual-note b,
+.hero-visual .visual-note span {
+  color: #edfaff !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .14) !important;
+}
+
+.hero-visual .visual-note span {
+  opacity: .84 !important;
 }
 
 .skill-group,
