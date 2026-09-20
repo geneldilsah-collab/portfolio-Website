@@ -9,7 +9,7 @@
 		"result": "会員登録、ログイン、カート、商品購入機能を備えたサービス紹介・オンライン販売サイト",
 		"technologies": ["WordPress系CMS", "PHP", "HTML / CSS / JavaScript"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/a-1.png",
+		"screenshot": "/assets/images/a-1.png",
 		"placeholder": false
 	},
 	{
@@ -22,7 +22,7 @@
 		"result": "旅館・宿泊施設向けの公式Webサイト",
 		"technologies": ["HTML", "CSS", "JavaScript", "多言語対応", "外部予約システム連携"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/Screenshot%202026-09-17%20111621.png",
+		"screenshot": "/assets/images/Screenshot%202026-09-17%20111621.png",
 		"placeholder": true
 	},
 	{
@@ -35,7 +35,7 @@
 		"result": "法人向けITサービス・製品・ソリューションを紹介する大規模企業サイト",
 		"technologies": ["HTML", "CSS", "JavaScript", "Webフォーム", "CMS / Webコンテンツ管理"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/Screenshot%202026-09-17%20111928.png",
+		"screenshot": "/assets/images/Screenshot%202026-09-17%20111928.png",
 		"placeholder": false
 	},
 	{
@@ -48,7 +48,7 @@
 		"result": "医師への相談とQ&A閲覧を提供する医療系Webサービス",
 		"technologies": ["Webアプリケーション", "会員管理", "認証・ログイン", "データベース", "決済", "検索・Q&A管理"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/askdoctor.png",
+		"screenshot": "/assets/images/askdoctor.png",
 		"placeholder": false
 	},
 	{
@@ -61,7 +61,7 @@
 		"result": "不動産会社向けの業務支援・顧客管理システム",
 		"technologies": ["Webアプリケーション", "CRM", "顧客管理", "物件管理", "検索", "データ管理", "業務管理"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/iecloud.png",
+		"screenshot": "/assets/images/iecloud.png",
 		"placeholder": false
 	},
 	{
@@ -74,7 +74,7 @@
 		"result": "ネットショップ・予約・決済・レジを統合した店舗向けクラウドサービス",
 		"technologies": ["Webアプリケーション", "EC", "予約管理", "顧客管理", "決済", "会員管理", "管理画面"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/stores.png",
+		"screenshot": "/assets/images/stores.png",
 		"placeholder": false
 	},
 	{
@@ -87,7 +87,7 @@
 		"result": "企業・サービス情報を発信するブランドサイト",
 		"technologies": ["HTML", "CSS", "JavaScript"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/haru-ni-bg.png",
+		"screenshot": "/assets/images/haru-ni-bg.png",
 		"placeholder": false
 	},
 	{
@@ -100,7 +100,7 @@
 		"result": "日本の中古車を海外へ販売する越境EC型Webサービス",
 		"technologies": ["PHP", "WordPress", "JavaScript", "HTML / CSS", "データベース", "検索・商品管理", "EC機能"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/car-from-japan.png",
+		"screenshot": "/assets/images/car-from-japan.png",
 		"placeholder": false
 	},
 	{
@@ -113,7 +113,7 @@
 		"result": "AIで不動産情報を分析し、適切な物件候補を提案・通知するシステム",
 		"technologies": ["Python", "OpenAI API", "FastAPI", "React", "Next.js", "PostgreSQL", "AWS"],
 		"url": "URLを入力",
-		"screenshot": "./assets/images/ai-real-estate.png",
+		"screenshot": "/assets/images/ai-real-estate.png",
 		"placeholder": false
 	}
 ]
