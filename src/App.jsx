@@ -21,6 +21,7 @@ function App() {
   const [filter, setFilter] = useState('all');
   const [page, setPage] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [dialogOrigin, setDialogOrigin] = useState({ x: '50%', y: '50%' });
   const [menuOpen, setMenuOpen] = useState(false);
   const [contactType, setContactType] = useState('');
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
@@ -51,6 +52,15 @@ function App() {
   }, [totalPages]);
 
   const visibleProjects = filteredProjects.slice(page * pageSize, page * pageSize + pageSize);
+
+  const openProjectDialog = (project, event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setDialogOrigin({
+      x: `${rect.left + rect.width / 2}px`,
+      y: `${rect.top + rect.height / 2}px`,
+    });
+    setSelectedProject(project);
+  };
 
   const contactDetails =
     contactType === 'gmail'
@@ -458,11 +468,11 @@ function App() {
                     key={`${project.name}-${index}`}
                     tabIndex={0}
                     role="button"
-                    onClick={() => setSelectedProject(project)}
+                    onClick={(event) => openProjectDialog(project, event)}
                     onKeyDown={(event) => {
                       if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault();
-                        setSelectedProject(project);
+                        openProjectDialog(project, event);
                       }
                     }}
                   >
@@ -590,7 +600,13 @@ function App() {
       </footer>
 
       {selectedProject && (
-        <div className="project-dialog" role="dialog" aria-modal="true" onClick={(event) => event.target === event.currentTarget && setSelectedProject(null)}>
+        <div
+          className="project-dialog is-open"
+          role="dialog"
+          aria-modal="true"
+          style={{ '--dialog-origin-x': dialogOrigin.x, '--dialog-origin-y': dialogOrigin.y }}
+          onClick={(event) => event.target === event.currentTarget && setSelectedProject(null)}
+        >
           <button type="button" className="dialog-close" aria-label="詳細を閉じる" onClick={() => setSelectedProject(null)}>
             ×
           </button>
