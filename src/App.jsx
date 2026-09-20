@@ -71,9 +71,97 @@ function App() {
           actionText: 'Chatworkを開く ↗',
         };
 
+  useEffect(() => {
+    const cursor = document.querySelector('.cursor-cloud');
+    const trail = document.querySelector('.cursor-trail');
+
+    if (!cursor || !trail) {
+      return undefined;
+    }
+
+    let cursorX = window.innerWidth / 2;
+    let cursorY = window.innerHeight / 2;
+    let trailX = cursorX;
+    let trailY = cursorY;
+
+    const updatePointerPosition = (event) => {
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+    };
+
+    const handlePointerMove = (event) => {
+      updatePointerPosition(event);
+    };
+
+    const handlePointerDown = (event) => {
+      if (event.pointerType === 'touch') {
+        return;
+      }
+
+      cursor.classList.add('is-pressed');
+
+      for (let index = 0; index < 18; index += 1) {
+        const puff = document.createElement('span');
+        const angle = (Math.PI * 2 * index) / 18;
+        const distance = 14 + Math.random() * 30;
+        const deltaX = Math.cos(angle) * distance;
+        const deltaY = Math.sin(angle) * distance;
+
+        puff.className = 'glass-burst';
+        puff.style.left = `${event.clientX}px`;
+        puff.style.top = `${event.clientY}px`;
+        puff.style.setProperty('--dx', `${deltaX}px`);
+        puff.style.setProperty('--dy', `${deltaY}px`);
+        puff.style.setProperty('--dr', `${(Math.random() - 0.5) * 260}deg`);
+        puff.style.setProperty('--scale', `${0.8 + Math.random() * 1.8}`);
+        puff.style.setProperty('--alpha', `${0.8 + Math.random() * 0.2}`);
+        document.body.appendChild(puff);
+
+        const removeBurst = () => {
+          if (puff.isConnected) {
+            puff.remove();
+          }
+        };
+
+        puff.addEventListener('animationend', removeBurst);
+        window.setTimeout(removeBurst, 820);
+      }
+    };
+
+    const handlePointerUp = () => {
+      cursor.classList.remove('is-pressed');
+    };
+
+    const animateCursor = () => {
+      trailX += (cursorX - trailX) * 0.18;
+      trailY += (cursorY - trailY) * 0.18;
+      trail.style.left = `${trailX}px`;
+      trail.style.top = `${trailY}px`;
+      window.requestAnimationFrame(animateCursor);
+    };
+
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+    trail.style.left = `${trailX}px`;
+    trail.style.top = `${trailY}px`;
+
+    document.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('pointerup', handlePointerUp);
+    window.requestAnimationFrame(animateCursor);
+
+    return () => {
+      document.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('pointerup', handlePointerUp);
+    };
+  }, []);
+
   return (
     <>
-      <div className="cursor-droplet" aria-hidden="true" />
+      <div className="cursor-cloud" aria-hidden="true" />
       <div className="cursor-trail" aria-hidden="true" />
 
       <header className="site-header">
